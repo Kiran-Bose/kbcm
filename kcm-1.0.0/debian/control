@@ -1,0 +1,15 @@
+Source: kcm
+Section: net
+Priority: optional
+Maintainer: kiran <kiran.vkvr@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 4.1.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: https://anonscm.debian.org/git/collab-maint/kcm.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/kcm.git
+
+Package: kcm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Commandline Copy/Move tool with integrated progress bar.
+ kcm is written in shell script. It internally uses cp and mv commands to copy and move items but integrates a progress bar.
