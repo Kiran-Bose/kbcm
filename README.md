@@ -1,7 +1,8 @@
 # kcm
 kcm is a commandline tool to copy and move files with integrated progress bar.
 kcm is written in shell script
-Note: kcm is included in package supreme. if supreme is already installed, skip installing.
+
+    Note: kcm is included in package supreme. if supreme is already installed, skip installing.
 
     Usage: kcm [Flags] [source/path] [Destination/path]
       -m  Move
