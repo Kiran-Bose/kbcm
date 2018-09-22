@@ -8,6 +8,6 @@ kcm is written in shell script
       -m  Move
       -c  Copy
       -v  version
-    Note: Use single flag.Using multiple flags simultaneously may provide undesired result
-    Examples:
+    Note: Use single flag.Using multiple flags simultaneously may give undesired result
+    Example:
       kcm -c /home/linuxuser/Videos/a.mp4 /home/linuxuser/Desktop
