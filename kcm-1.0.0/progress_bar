@@ -3,6 +3,7 @@
 #------------------------------------------------------------------------------------------------
 function kbbar ()
 {
+user=$(whoami)
 local i
 local PROG_BAR_MAX=50
 local PROG_BAR_TODO="\e[107m \e[0m"
@@ -16,7 +17,7 @@ fi
 sleep 1
 if [[ (-d "$2") || (-f "$2") ]] && [ $tots != 0 ]
 then
-	if [[ ("$1" == "/media/kb"*) && ("$2" == "/media/kb"*) ]]
+	if [[ ("$1" == "/media/$user"*) && ("$2" == "/media/$user"*) ]]
 	then
 	chk1=$(echo "$1" | cut -d '/' -f 1-4 )
 	chk2=$(echo "$2" | cut -d '/' -f 1-4 )
