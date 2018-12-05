@@ -4,7 +4,7 @@ kbcm is written in shell script
 
     Note: kbcm is included in package supreme. if supreme is already installed, skip installing.
 
-    Usage: kcm [Flags] [source/path] [Destination/path]
+    Usage: kbcm [Flags] [source/path] [Destination/path]
       -m  Move
       -c  Copy
       -v  version
