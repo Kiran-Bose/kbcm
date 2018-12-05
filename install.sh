@@ -52,6 +52,9 @@ checkInternet()
 if [[ -f /usr/bin/kbcm ]]
 then
 echo -e "kbcm is already installed through package manager. You should uninstall through package manager to proceed with this install"
+elif [[ -f /usr/bin/supreme ]] || [[ -f /usr/local/bin/supreme ]]
+then
+echo -e "kbcm is installed with supreme. Uninstall supreme to proceed with this install"
 else
 	if command -v kbcm &>/dev/null; then
 	echo -e "kbcm is already installed. Do you want to check for updates?(y/n)"
