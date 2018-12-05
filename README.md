@@ -1,8 +1,8 @@
-# kcm
-kcm is a commandline tool to copy and move files with integrated progress bar.
-kcm is written in shell script
+# kbcm
+kbcm is a commandline tool to copy and move files with integrated progress bar.
+kbcm is written in shell script
 
-    Note: kcm is included in package supreme. if supreme is already installed, skip installing.
+    Note: kbcm is included in package supreme. if supreme is already installed, skip installing.
 
     Usage: kcm [Flags] [source/path] [Destination/path]
       -m  Move
@@ -10,4 +10,4 @@ kcm is written in shell script
       -v  version
     Note: Use single flag.Using multiple flags simultaneously may give undesired result
     Example:
-      kcm -c /home/linuxuser/Videos/a.mp4 /home/linuxuser/Desktop
+      kbcm -c /home/linuxuser/Videos/a.mp4 /home/linuxuser/Desktop
