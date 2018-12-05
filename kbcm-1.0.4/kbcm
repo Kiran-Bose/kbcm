@@ -1,10 +1,13 @@
 #!/bin/bash
 #kiran.vkvr@gmail.com
-#https://github.com/Kiran-Bose/kcm
+#https://github.com/Kiran-Bose/kbcm
 
 if [[ -f /usr/bin/progress_bar ]]
-then
+then 
 . /usr/bin/progress_bar
+elif [[ -f /usr/local/bin/progress_bar ]]
+then
+. /usr/local/bin/progress_bar
 else
 buildpath=$(pwd)
 . "$buildpath"/progress_bar
@@ -32,18 +35,18 @@ fi
 }
 
 #------------------------------------------------------------------------------------------------
-function kcmusage()
+function kbcmusage()
 {
   cat <<EOF
-kcm
+kbcm
 Description: Copy/Move with integrated progress bar.
-Usage: kcm [Flags] [source/path] [Destination/path]
+Usage: kbcm [Flags] [source/path] [Destination/path]
   -m  Move
   -c  Copy
   -v  version
 Note: Use single flag.Using multiple flags simultaneously may provide undesired result
 Examples:
-  kcm -c /home/linuxuser/Videos/a.mp4 /home/linuxuser/Desktop
+  kbcm -c /home/linuxuser/Videos/a.mp4 /home/linuxuser/Desktop
 EOF
 }
 #------------------------------------------------------------------------------------------------
@@ -52,12 +55,12 @@ while getopts ":cmv" option; do
   	case "${option}" in
 	c)actn="cp -rv";;
 	m)actn="mv -v";;
-	v)echo -e "version 1.0.0" && exit 0;;
-	\?)kcmusage && exit 0;;
+	v)echo -e "version 1.0.4" && exit 0;;
+	\?)kbcmusage && exit 0;;
 	esac
 done
 if [[ $# -ne 3 ]]; then
-kcmusage && exit 0
+kbcmusage && exit 0
 fi
 tots=$(szcum "$2")
 if [ "$tots" == "f" ]
@@ -67,8 +70,14 @@ exit 0
 else
 feedemt=$(echo "$2" | rev | cut -d '/' -f 1 | rev)
 echo -e "________________________________________________________________________________"
-echo "$2""-->""$3"
-$actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots" 
+echo "$2 --> $3"
+$actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots"
+	if [[ ${PIPESTATUS[0]} == 1 ]]
+	then
+	echo -e "________________________________________________________________________________"
+	echo "$2 --> $3"
+	sudo $actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots"
+	fi 
 fi
 
 
