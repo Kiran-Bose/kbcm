@@ -2,9 +2,12 @@
 #kiran.vkvr@gmail.com
 #https://github.com/Kiran-Bose/kbcm
 
-if [[ -f /usr/bin/kbcm ]]
+if [[ -f /usr/bin/kbcm ]] && [[ ! -f /usr/bin/supreme ]]
 then
-echo -e "kbcm is installed through package manager. You should uninstall through package manager."
+echo -e "kbcm is installed through package manager. You should uninstall through package manager"
+elif [[ -f /usr/bin/supreme ]] || [[ -f /usr/local/bin/supreme ]]
+then
+echo -e "kbcm is installed with supreme. Try removing supreme"
 else
 	if command -v kbcm &>/dev/null; then
 		echo -e "Are you sure you want to uninstall kbcm? (y/n)"
