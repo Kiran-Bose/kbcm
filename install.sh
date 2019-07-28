@@ -45,7 +45,7 @@ instdirchk=("$instsrch"/*)
 #------------------------------------------------------------------------------------------------
 checkInternet()
 {
-  ping -c2 github.com > /dev/null 2>&1 || { echo -e "Error: no active internet connection" >&2; return 1; }
+  ping -c2 google.com > /dev/null 2>&1 || { echo -e "Error: no active internet connection" >&2; return 1; }
 }
 
 #------------------------------------------------------------------------------------------------
