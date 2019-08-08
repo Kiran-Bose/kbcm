@@ -53,9 +53,9 @@ EOF
 OPTIND=1
 while getopts ":cmv" option; do
   	case "${option}" in
-	c)actn="cp -rv";;
-	m)actn="mv -v";;
-	v)echo -e "version 1.0.7" && exit 0;;
+	c)actn="cp -r";;
+	m)actn="mv";;
+	v)echo -e "version 1.0.9" && exit 0;;
 	\?)kbcmusage && exit 0;;
 	esac
 done
@@ -75,7 +75,7 @@ else
 feedemt=$(echo "$2" | rev | cut -d '/' -f 1 | rev)
 echo -e "________________________________________________________________________________"
 echo "$2 --> $3"
-$actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots" || exit 1
+($actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots") || exit 1
 	if [[ ${PIPESTATUS[0]} == 1 ]]
 	then
 		tots=$(szcum "$2")
@@ -91,7 +91,7 @@ $actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots" || exit 1
 		feedemt=$(echo "$2" | rev | cut -d '/' -f 1 | rev)
 		echo -e "________________________________________________________________________________"
 		echo "$2 --> $3"
-		sudo $actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots"
+		(sudo $actn "$2" "$3" | kbbar "$2" "$3"/"$feedemt" "$tots")
 		fi
 	fi
 fi
